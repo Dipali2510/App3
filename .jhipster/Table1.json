@@ -1,0 +1,22 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "Table1_Column1",
+            "otherEntityName": "Table2",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "Column2",
+            "ownerSide": "NA"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "Column1",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "1611236899694",
+    "dto": "no",
+    "pagination": "no"
+}

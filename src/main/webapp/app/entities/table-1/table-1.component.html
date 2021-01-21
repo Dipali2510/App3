@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span>Table 1 S</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-table-1" [routerLink]="['/table-1/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Table 1
+            </span>
+        </button>
+    </h2>
+
+    <cg-alert-error></cg-alert-error>
+
+    <cg-alert></cg-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="table1s?.length === 0">
+        <span>No table1s found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="table1s && table1s.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Column 1</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let table1 of table1s ;trackBy: trackId">
+                    <td><a [routerLink]="['/table-1', table1.id, 'view']">{{ table1.id }}</a></td>
+                    <td>{{ table1.Column1 }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/table-1', table1.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/table-1', table1.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(table1)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
